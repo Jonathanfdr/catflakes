@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bvygreaciehug"]
+
+[ext_resource type="Texture2D" uid="uid://csuockaeoxgcg" path="res://cena2.png" id="1_dwbse"]
+[ext_resource type="Script" uid="uid://bqaxehrh5rw86" path="res://world.gd" id="1_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://cnragf57uys70" path="res://cat.tscn" id="2_fj7yv"]
+[ext_resource type="Texture2D" uid="uid://bfa48j01erxnk" path="res://blue-!arrowright.png" id="3_dwbse"]
+[ext_resource type="Texture2D" uid="uid://s5fl2cjxwr74" path="res://blue-!arrowright-pushed.png" id="4_pkg7o"]
+[ext_resource type="Texture2D" uid="uid://ckf57e2syf18" path="res://blue-!arrowleft.png" id="5_gbfbk"]
+[ext_resource type="Texture2D" uid="uid://dc6ru00xo1vgc" path="res://blue-!arrowleft-pushed.png" id="6_ioo17"]
+[ext_resource type="FontFile" uid="uid://bni4krkqlv2kt" path="res://Minecraft.ttf" id="7_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://dl6qr1vemeo5w" path="res://snowflake.tscn" id="8_gbfbk"]
+[ext_resource type="AudioStream" uid="uid://dlrctcs60gbb0" path="res://bunny-hop-andrey-rossi-main-version-30994-02-09.mp3" id="10_wse8f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ojpci"]
+font = ExtResource("7_pkg7o")
+font_size = 12
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.65882355)
+shadow_offset = Vector2(2, 1)
+
+[node name="World" type="Node2D" unique_id=415809616]
+script = ExtResource("1_gbfbk")
+snoflakes = ExtResource("8_gbfbk")
+
+[node name="Fundo" type="Sprite2D" parent="." unique_id=1367439266]
+position = Vector2(160, 80)
+texture = ExtResource("1_dwbse")
+
+[node name="Cat" parent="." unique_id=300162438 instance=ExtResource("2_fj7yv")]
+position = Vector2(136, 136)
+SPEED = 80.0
+
+[node name="Right" type="TouchScreenButton" parent="." unique_id=1764202042]
+position = Vector2(282, 131)
+texture_normal = ExtResource("3_dwbse")
+texture_pressed = ExtResource("4_pkg7o")
+action = "ui_right"
+
+[node name="Left" type="TouchScreenButton" parent="." unique_id=138164404]
+position = Vector2(6, 131)
+texture_normal = ExtResource("5_gbfbk")
+texture_pressed = ExtResource("6_ioo17")
+action = "ui_left"
+
+[node name="Label" type="Label" parent="." unique_id=1130560508]
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 107.0
+offset_bottom = 30.0
+text = "0000 flocos"
+label_settings = SubResource("LabelSettings_ojpci")
+
+[node name="Timer" type="Timer" parent="." unique_id=1775134053]
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=702960619]
+stream = ExtResource("10_wse8f")
+autoplay = true
+parameters/looping = true
+
+[connection signal="make_point" from="Cat" to="." method="_on_cat_make_point"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

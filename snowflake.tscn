@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dl6qr1vemeo5w"]
+
+[ext_resource type="Texture2D" uid="uid://bw0titxp1ercm" path="res://snowflake.png" id="1_fj7hp"]
+[ext_resource type="Script" uid="uid://cvnm4w4kj5p45" path="res://snowflake.gd" id="1_sue7x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_304w8"]
+radius = 69.99999
+
+[node name="Coin" type="Area2D" unique_id=443428367]
+script = ExtResource("1_sue7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=188606322]
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CircleShape2D_304w8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=76893615]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_fj7hp")
