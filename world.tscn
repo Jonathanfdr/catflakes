@@ -29,7 +29,7 @@ position = Vector2(160, 80)
 texture = ExtResource("1_dwbse")
 
 [node name="Cat" parent="." unique_id=300162438 instance=ExtResource("2_fj7yv")]
-position = Vector2(138, 58)
+position = Vector2(136, 136)
 SPEED = 80.0
 
 [node name="Right" type="TouchScreenButton" parent="." unique_id=1764202042]
