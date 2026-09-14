@@ -4,3 +4,4 @@ res://cat.gd
 res://snowflake.tscn
 res://snowflake.gd
 res://world.gd
+res://collision_shape_2d.gd
